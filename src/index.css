@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
+
+.exo-font{
+  font-family: "Exo", sans-serif;
+}
+
+@import "tailwindcss";
