@@ -1,5 +1,9 @@
-import { FaRegBookmark } from "react-icons/fa";
-const SingleBlog = ({ blogElement, handleAddToBookmarks }) => {
+import { FaBookmark } from "react-icons/fa6";
+const SingleBlog = ({
+  blogElement,
+  handleAddToBookmarks,
+  handleAddToReadingTime,
+}) => {
   // console.log(blogElement);
   const { cover, title, reading_time } = blogElement;
   return (
@@ -12,10 +16,15 @@ const SingleBlog = ({ blogElement, handleAddToBookmarks }) => {
           onClick={() => handleAddToBookmarks(blogElement)}
           className="text-red-600"
         >
-          <FaRegBookmark></FaRegBookmark>
+          <FaBookmark></FaBookmark>
         </button>
       </div>
-      <button className="text-lg font-normal">Mark As Read</button>
+      <button
+        onClick={() => handleAddToReadingTime(reading_time)}
+        className="text-lg font-normal bg-green-500 p-1"
+      >
+        Add to reading time
+      </button>
     </div>
   );
 };
