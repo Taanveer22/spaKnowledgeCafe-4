@@ -2,10 +2,10 @@ import { FaBookmark } from "react-icons/fa6";
 const SingleBlog = ({
   blogElement,
   handleAddToBookmarks,
-  handleAddToReadingTime,
+  handleAddToReadingList,
 }) => {
   // console.log(blogElement);
-  const { cover, title, reading_time } = blogElement;
+  const { cover, title, reading_time, id } = blogElement;
   return (
     <div className="space-y-4">
       <img className="max-w-full" src={cover}></img>
@@ -20,10 +20,10 @@ const SingleBlog = ({
         </button>
       </div>
       <button
-        onClick={() => handleAddToReadingTime(reading_time)}
+        onClick={() => handleAddToReadingList(reading_time, id)}
         className="text-lg font-normal bg-green-500 p-1"
       >
-        Add to reading time
+        Add to reading list
       </button>
     </div>
   );

@@ -7,12 +7,12 @@ const BookMarks = ({ savedBookmarks, readingTime }) => {
         Total Reading Time : {readingTime} min
       </h1>
       <h1 className="text-xl font-medium text-red-600 mb-5">
-        Total Bookmarks : {savedBookmarks.length}
+        Saved Bookmarks : {savedBookmarks.length}
       </h1>
       <div className="grid gap-5 grid-cols-1">
-        {savedBookmarks.map((bookmarkElement) => (
+        {savedBookmarks.map((bookmarkElement, index) => (
           <SingleBookMark
-            key={bookmarkElement.id}
+            key={index}
             bookmarkElement={bookmarkElement}
           ></SingleBookMark>
         ))}

@@ -11,17 +11,29 @@ function App() {
     setSavedBookmarks(newSavedBookmarks);
   };
 
-  const handleAddToReadingTime = (time) => {
-    // console.log("reading time added...", time);
-    const newReadingTime = readingTime + time;
+  const handleAddToReadingList = (paramTime, paramId) => {
+    // console.log("reading time added", paramTime);
+    const newReadingTime = readingTime + paramTime;
     setReadingTime(newReadingTime);
+    // remove saved bookmarks after reading....
+    // console.log("remove bookmark", id);
+    const remainingBookmarks = savedBookmarks.filter(
+      (bookmarkElement) => bookmarkElement.id !== paramId
+    );
+    setSavedBookmarks(remainingBookmarks);
   };
   return (
     <div className="w-11/12 mx-auto">
       <h1 className="text-4xl font-bold text-center my-5">Knowledge Cafe</h1>
-      <div className="flex">
-        <Blogs handleAddToBookmarks={handleAddToBookmarks} handleAddToReadingTime={handleAddToReadingTime}></Blogs>
-        <BookMarks savedBookmarks={savedBookmarks} readingTime={readingTime}></BookMarks>
+      <div className="flex gap-5 justify-between">
+        <Blogs
+          handleAddToBookmarks={handleAddToBookmarks}
+          handleAddToReadingList={handleAddToReadingList}
+        ></Blogs>
+        <BookMarks
+          savedBookmarks={savedBookmarks}
+          readingTime={readingTime}
+        ></BookMarks>
       </div>
     </div>
   );
